@@ -1,131 +1,146 @@
 /* General styling for the dice */
 .dice {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* 3x3 grid */
-    grid-template-rows: repeat(3, 1fr);
+    display: flex;
     width: 150px;
     height: 150px;
     background-color: white;
-    border: 2px solid black;
-    margin: 20px;
-    place-items: center;
+    border: 3px solid black;
+    border-radius: 10%;
+    margin: 40px;
+    position: relative; /* absolute positioning */
 }
 
+/* Styling for individual dots */
 .dice aside {
     width: 30px;
     height: 30px;
     background-color: black;
-    border-radius: 50%;
-    place-self: center;
+    border-radius: 100%;
+    position: absolute; /* Enable positioning relative to dice */
 }
 
-/* Side with 1 dot */
-.dots-1 aside {
-    grid-column: 2;
-    grid-row: 2;
+/* For 1 dot, center it */
+.dots-1 aside:nth-child(1) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Side with 2 dots */
+/* For 2 dots, place them in top-left and bottom-right */
 .dots-2 aside:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
+    top: 15%;
+    left: 15%;
 }
 
 .dots-2 aside:nth-child(2) {
-    grid-column: 3;
-    grid-row: 3;
+    bottom: 15%;
+    right: 15%;
 }
 
-/* Side with 3 dots */
+/* For 3 dots, top-left, center, bottom-right */
 .dots-3 aside:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
+    top: 15%;
+    left: 15%;
 }
 
 .dots-3 aside:nth-child(2) {
-    grid-column: 2;
-    grid-row: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .dots-3 aside:nth-child(3) {
-    grid-column: 3;
-    grid-row: 3;
+    bottom: 15%;
+    right: 15%;
 }
 
-/* Side with 4 dots */
+/* For 4 dots, top-left, top-right, bottom-left, bottom-right */
 .dots-4 aside:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
+    top: 15%;
+    left: 15%;
 }
 
 .dots-4 aside:nth-child(2) {
-    grid-column: 1;
-    grid-row: 3;
+    top: 15%;
+    right: 15%;
 }
 
 .dots-4 aside:nth-child(3) {
-    grid-column: 3;
-    grid-row: 1;
+    bottom: 15%;
+    left: 15%;
 }
 
 .dots-4 aside:nth-child(4) {
-    grid-column: 3;
-    grid-row: 3;
+    bottom: 15%;
+    right: 15%;
 }
 
-/* Side with 5 dots */
+/* For 5 dots, like 4 plus a center dot */
 .dots-5 aside:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
+    top: 15%;
+    left: 15%;
 }
 
 .dots-5 aside:nth-child(2) {
-    grid-column: 1;
-    grid-row: 3;
+    top: 15%;
+    right: 15%;
 }
 
 .dots-5 aside:nth-child(3) {
-    grid-column: 2;
-    grid-row: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .dots-5 aside:nth-child(4) {
-    grid-column: 3;
-    grid-row: 1;
+    bottom: 15%;
+    left: 15%;
 }
 
 .dots-5 aside:nth-child(5) {
-    grid-column: 3;
-    grid-row: 3;
+    bottom: 15%;
+    right: 15%;
 }
 
-/* Side with 6 dots */
+/* For 6 dots, 3 on left column, 3 on right column */
 .dots-6 aside:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
+    top: 15%;
+    left: 15%;
 }
 
 .dots-6 aside:nth-child(2) {
-    grid-column: 1;
-    grid-row: 2;
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
 }
 
 .dots-6 aside:nth-child(3) {
-    grid-column: 1;
-    grid-row: 3;
+    bottom: 15%;
+    left: 15%;
 }
 
 .dots-6 aside:nth-child(4) {
-    grid-column: 3;
-    grid-row: 1;
+    top: 15%;
+    right: 15%;
 }
 
 .dots-6 aside:nth-child(5) {
-    grid-column: 3;
-    grid-row: 2;
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
 }
 
 .dots-6 aside:nth-child(6) {
-    grid-column: 3;
-    grid-row: 3;
+    bottom: 15%;
+    right: 15%;
+}
+
+/* Wrapper to center the dice horizontally */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 300px;
 }
